@@ -569,6 +569,59 @@
     }
     .skill-bar-fill.animated { transform: scaleX(1); }
 
+    /* Artist by Nature */
+    .artist {
+      padding: 8rem 0;
+      background: var(--ink);
+      color: var(--cream);
+    }
+    .artist .section-rule { background: #3d3830; }
+    .artist .section-label { color: var(--accent-light); }
+    .artist .section-heading { color: var(--cream); }
+    .artist-intro {
+      max-width: 520px;
+      color: rgba(248,246,243,0.65);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-top: 1.5rem;
+    }
+    .artist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    .artist-piece {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .artist-piece img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+      filter: brightness(0.9) saturate(0.95);
+    }
+    .artist-piece:hover img {
+      transform: scale(1.03);
+      filter: brightness(1) saturate(1.05);
+    }
+    .artist-piece-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2.5rem 1.5rem 1.2rem;
+      background: linear-gradient(to top, rgba(26,23,20,0.75) 0%, transparent 100%);
+      color: rgba(248,246,243,0.8);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
     /* Contact */
     .contact {
       padding: 8rem 0 6rem;
@@ -1068,6 +1121,26 @@
               <div class="skill-bar-track"><div class="skill-bar-fill" data-width="0.6"></div></div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artist by Nature -->
+  <section class="artist" id="artist">
+    <div class="section-inner">
+      <div class="section-rule"></div>
+      <p class="section-label reveal">Beyond the Screen</p>
+      <h2 class="section-heading reveal reveal-delay-1">Artist<br /><em>by Nature</em></h2>
+      <p class="artist-intro reveal reveal-delay-2">Before the parametric models and the keynote stages, there was paint. A lifelong practice of making by hand, of colour and texture and quiet observation. Design and art are not separate worlds.</p>
+      <div class="artist-grid">
+        <div class="artist-piece reveal reveal-delay-2">
+          <img src="images/IMG_20260206_172753.jpg" alt="Original painting by M. Agustina Jaime" loading="lazy" />
+          <div class="artist-piece-label">Original work</div>
+        </div>
+        <div class="artist-piece reveal reveal-delay-3">
+          <img src="images/IMG-20240914-WA0040~2.jpeg" alt="Original painting by M. Agustina Jaime" loading="lazy" />
+          <div class="artist-piece-label">Original work</div>
         </div>
       </div>
     </div>
