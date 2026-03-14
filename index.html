@@ -70,7 +70,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      mix-blend-mode: multiply;
+      transition: background 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease;
+      /* mix-blend-mode removed so frosted bg renders correctly */
+    }
+    nav.scrolled {
+      background: rgba(248, 246, 243, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+      padding: 1rem 4rem;
     }
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
@@ -1161,10 +1169,15 @@
     }, { threshold: 0.3 });
     document.querySelectorAll('.skill-bars').forEach(el => barObserver.observe(el));
 
-    // Nav highlight
+    // Nav background on scroll
+    const nav = document.querySelector('nav');
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
     window.addEventListener('scroll', () => {
+      // Frosted background once user scrolls past the fold
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+
+      // Active link highlight
       let current = '';
       sections.forEach(section => {
         if (window.scrollY >= section.offsetTop - 120) current = section.getAttribute('id');
