@@ -347,6 +347,29 @@
     .events .section-label { color: var(--accent-light); }
     .events .section-rule { background: #3d3830; }
 
+    .events-feature-photo {
+      margin-bottom: 3rem;
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+    .events-feature-photo img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      filter: brightness(0.85);
+    }
+    .events-feature-photo .photo-caption {
+      position: absolute;
+      bottom: 1rem;
+      left: 1.2rem;
+      color: rgba(248,246,243,0.75);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+    }
+
     .events-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -841,7 +864,7 @@
           <div class="photo-caption">Konferencja KeyShot, Poland</div>
         </div>
         <div class="photo-item photo-item--normal">
-          <img src="images/20251009-182803_AgustinaVisit_DSCF7382_fin.jpg" alt="NURBS surface modelling workshop presentation" loading="lazy" />
+          <img src="images/IMG-20240607-WA0008.jpg" alt="Rhino User Meeting Wroclaw speakers and attendees" loading="lazy" />
           <div class="photo-caption">Rhino User Meeting, Wroclaw 2024</div>
         </div>
         <div class="photo-item photo-item--wide">
@@ -907,6 +930,11 @@
       <div class="section-rule"></div>
       <p class="section-label reveal">Speaking &amp; Events</p>
       <h2 class="section-heading reveal reveal-delay-1">Building the<br /><em>European</em> 3D community</h2>
+
+      <div class="events-feature-photo reveal reveal-delay-1">
+        <img src="images/WhatsApp Image 2026-03-13 at 15.57.48.jpeg" alt="Agustina at a McNeel Europe event with the community" loading="lazy" />
+        <div class="photo-caption">McNeel Europe &middot; Community Event</div>
+      </div>
 
       <div class="events-grid">
         <div class="event-card reveal">
