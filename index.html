@@ -746,6 +746,15 @@
       font-size: 0.9rem;
       color: var(--ink-soft);
     }
+    .footer-behance {
+      color: var(--ink-muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.2s ease;
+    }
+    .footer-behance:hover {
+      color: var(--ink);
+    }
 
     /* Scroll reveal */
     .reveal {
@@ -848,6 +857,14 @@
       color: var(--ink-soft);
       max-width: 560px;
       margin-bottom: 1.5rem;
+    }
+    .project-card-role {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--ink-muted);
+      margin-top: 0.75rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
     }
     .project-img-placeholder {
       font-size: 0.7rem;
@@ -1232,11 +1249,19 @@
       <p class="artist-intro reveal reveal-delay-2">Before the parametric models and the keynote stages, there was paint. A lifelong practice of making by hand, of colour and texture and quiet observation. Design and art are not separate worlds.</p>
       <div class="artist-grid">
         <div class="artist-piece reveal reveal-delay-2">
-          <img src="images/IMG_20260206_172753.jpg" alt="Original painting by Maria Agustina Jaime" loading="lazy" />
+          <img src="images/art/WhatsApp Image 2026-03-16 at 22.25.49.jpeg" alt="Original painting by Maria Agustina Jaime" loading="lazy" />
           <div class="artist-piece-label">Original work</div>
         </div>
         <div class="artist-piece reveal reveal-delay-3">
-          <img src="images/IMG-20240914-WA0040~2.jpeg" alt="Original painting by Maria Agustina Jaime" loading="lazy" />
+          <img src="images/art/WhatsApp Image 2026-03-16 at 22.25.50.jpeg" alt="Original painting by Maria Agustina Jaime" loading="lazy" />
+          <div class="artist-piece-label">Original work</div>
+        </div>
+        <div class="artist-piece reveal reveal-delay-2">
+          <img src="images/art/WhatsApp Image 2026-03-16 at 22.25.51.jpeg" alt="Original painting by Maria Agustina Jaime" loading="lazy" />
+          <div class="artist-piece-label">Original work</div>
+        </div>
+        <div class="artist-piece reveal reveal-delay-3">
+          <img src="images/art/WhatsApp Image 2026-03-16 at 22.25.54.jpeg" alt="Original painting by Maria Agustina Jaime" loading="lazy" />
           <div class="artist-piece-label">Original work</div>
         </div>
       </div>
@@ -1271,15 +1296,19 @@
         <div class="project-card" onclick="toggleProject(this)">
           <div class="project-card-header">
             <div>
-              <div class="project-card-label">Furniture &amp; Interiors</div>
+              <div class="project-card-label">Branding &amp; Interiors</div>
               <h3 class="project-card-name">Green Eat</h3>
             </div>
             <span class="project-card-toggle">+</span>
           </div>
           <div class="project-card-body">
-            <p>Furniture and spatial design for a plant-based restaurant concept. Balancing organic forms with functional, durable pieces for a public setting.</p>
+            <p>Redefining and consolidating brand image of the pioneers in Buenos Aires of healthy fast food by designing interior as well as furniture.</p>
+            <p class="project-card-role"><strong>Role:</strong> Branding &middot; Lay out &middot; Suppliers &middot; Furniture &middot; Lightening &middot; Packaging &middot; Merchandise &middot; Merchandise display</p>
             <div class="project-card-images">
-              <div class="project-img-placeholder">Images coming soon</div>
+              <img src="images/green-eat/3837x1854.webp" alt="Green Eat interior" loading="lazy" />
+              <img src="images/green-eat/3837x2570.webp" alt="Green Eat branding" loading="lazy" />
+              <img src="images/green-eat/3837x3408.webp" alt="Green Eat furniture" loading="lazy" />
+              <img src="images/green-eat/3839x1858.webp" alt="Green Eat space" loading="lazy" />
             </div>
           </div>
         </div>
@@ -1370,6 +1399,7 @@
     <p>&copy; 2026 Maria Agustina Jaime. All rights reserved.</p>
     <p class="footer-mark">Maria Agustina Jaime / Industrial Designer</p>
     <p>McNeel Europe &middot; Wroclaw &middot; Budapest &middot; Amsterdam</p>
+    <p><a href="https://www.behance.net/MariaAgustinaJaime/projects" target="_blank" rel="noopener noreferrer" class="footer-behance">Behance ↗</a></p>
   </footer>
 
   <script>
