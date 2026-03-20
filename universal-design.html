@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Universal Design, Maria Agustina Jaime</title>
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0e8;
+      --cream-dark: #ede7d9;
+      --ink: #1a1714;
+      --ink-soft: #3d3830;
+      --ink-muted: #8a8278;
+      --accent: #c43d18;
+      --accent-light: #e06040;
+      --rule: #ccc5b8;
+      --white: #faf8f4;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* Cursor */
+    .cursor {
+      position: fixed;
+      width: 10px; height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease;
+      mix-blend-mode: multiply;
+    }
+    .cursor-ring {
+      position: fixed;
+      width: 36px; height: 36px;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      opacity: 0.5;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 2rem 3rem;
+      transition: background 0.3s, padding 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(245,240,232,0.96);
+      backdrop-filter: blur(8px);
+      padding: 1.2rem 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-back {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+    .nav-back-arrow { font-size: 1rem; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 560px;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,23,20,0.75) 0%, rgba(26,23,20,0.1) 60%);
+    }
+    .hero-content {
+      position: absolute;
+      bottom: 4rem; left: 4rem; right: 4rem;
+      color: var(--cream);
+    }
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.7);
+      margin-bottom: 1rem;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 2rem;
+    }
+    .hero-title em { font-style: italic; color: var(--accent-light); }
+    .hero-meta {
+      display: flex; gap: 3rem; flex-wrap: wrap;
+    }
+    .hero-meta-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.5);
+      margin-bottom: 0.3rem;
+    }
+    .hero-meta-value {
+      font-size: 0.85rem;
+      color: rgba(245,240,232,0.9);
+    }
+
+    /* Section base */
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+    }
+    .section-rule {
+      width: 2rem; height: 1px;
+      background: var(--accent);
+      margin-bottom: 2rem;
+    }
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 1rem;
+    }
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 3rem;
+    }
+    .section-heading em { font-style: italic; color: var(--accent); }
+
+    /* Brief */
+    .brief-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .brief-role-list {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+    .brief-role-list li {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .brief-right p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--ink-soft);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Project sections */
+    .project-section {
+      background: var(--cream-dark);
+      border-top: 1px solid var(--rule);
+    }
+    .project-section:nth-child(even) {
+      background: var(--cream);
+    }
+    .project-section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 3rem;
+    }
+    .project-section-header {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      align-items: start;
+      margin-bottom: 4rem;
+    }
+    .project-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 300;
+      color: var(--rule);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .project-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .project-title em { font-style: italic; color: var(--accent); }
+    .project-for {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 1.5rem;
+    }
+    .project-desc {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--ink-soft);
+      margin-bottom: 1.5rem;
+    }
+    .project-deliverables {
+      margin-top: 1.5rem;
+    }
+    .project-deliverables-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 0.75rem;
+    }
+    .project-deliverables ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .project-deliverables li {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      border: 1px solid var(--rule);
+      padding: 0.3rem 0.75rem;
+    }
+
+    /* Image grids */
+    .img-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .img-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+    }
+    .img-grid-wide {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1rem;
+    }
+    .img-grid-2 img,
+    .img-grid-3 img,
+    .img-grid-wide img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      display: block;
+    }
+    .img-caption {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* CTA */
+    .cta { border-top: 1px solid var(--rule); }
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cta-back {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .cta-back:hover { color: var(--accent); }
+    .cta-next-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 0.3rem;
+      text-align: right;
+    }
+    .cta-next-link {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .cta-next-link:hover { color: var(--accent); }
+
+    /* Footer */
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 3rem;
+      border-top: 1px solid var(--rule);
+      background: var(--cream-dark);
+    }
+    footer p {
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.05em;
+    }
+    .footer-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+    }
+
+    /* Reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.35s; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      nav { padding: 1.5rem 2rem; }
+      nav.scrolled { padding: 1rem 2rem; }
+      .hero-content { left: 2rem; right: 2rem; bottom: 3rem; }
+      .section-inner { padding: 4rem 2rem; }
+      .brief-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .project-section-inner { padding: 4rem 2rem; }
+      .project-section-header { grid-template-columns: 1fr; gap: 2rem; }
+      .img-grid-2,
+      .img-grid-3,
+      .img-grid-wide { grid-template-columns: 1fr; }
+      .img-grid-2 img,
+      .img-grid-3 img,
+      .img-grid-wide img { height: 260px; }
+      .cta-inner { flex-direction: column; gap: 3rem; align-items: flex-start; }
+      footer { flex-direction: column; gap: 1rem; padding: 2rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Nav -->
+  <nav id="nav">
+    <a class="nav-logo" href="index.html">Maria Agustina Jaime</a>
+    <a class="nav-back" href="index.html#projects">
+      <span class="nav-back-arrow">←</span> All Projects
+    </a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <img src="https://carbon-media.accelerator.net/0000000maap/2YjP08TxmJFfcZCtUjqKzN;1400x990.jpeg" alt="Universal Art Set, bamboo and aluminium tools for inclusive design" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Sustainable &amp; Inclusive Design</p>
+      <h1 class="hero-title">Design for<br /><em>the real world</em></h1>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <div class="hero-meta-label">Focus</div>
+          <div class="hero-meta-value">Social Impact</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-label">Projects</div>
+          <div class="hero-meta-value">4 Projects</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-label">Disciplines</div>
+          <div class="hero-meta-value">Product / Industrial / Environmental Design</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brief -->
+  <section class="brief">
+    <div class="section-inner">
+      <div class="section-rule"></div>
+      <div class="brief-grid">
+        <div class="brief-left reveal">
+          <p class="section-label">The Work</p>
+          <h2 class="section-heading">Design as<br /><em>a tool</em></h2>
+          <ul class="brief-role-list">
+            <li>Product Design</li>
+            <li>Technical Drawing</li>
+            <li>Prototype Development</li>
+            <li>Scale Modelling</li>
+            <li>Production Planning</li>
+            <li>Graphic Communication</li>
+            <li>Social Impact</li>
+          </ul>
+        </div>
+        <div class="brief-right">
+          <p class="reveal reveal-delay-1">
+            These four projects sit at the intersection of <strong>industrial design and social responsibility</strong>. Each one started from a real need: accessibility, water conservation, rural sanitation, or agricultural efficiency.
+          </p>
+          <p class="reveal reveal-delay-2">
+            The brief in each case was to design something that works in the real world, not the ideal one. Designs that are economically viable to manufacture, simple to install, and meaningful to the people who use them.
+          </p>
+          <p class="reveal reveal-delay-3">
+            Each project was delivered with full technical documentation, prototypes or scale models, and a production plan, ready to be built.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project 01: Universal Art Set -->
+  <section class="project-section">
+    <div class="project-section-inner">
+      <div class="project-section-header">
+        <div class="reveal">
+          <div class="project-number">01</div>
+          <div class="section-rule" style="margin-bottom: 1.5rem;"></div>
+          <p class="project-for">For SOWER TRAILS Civil Association</p>
+          <h2 class="project-title">Universal<br /><em>Art Set</em></h2>
+          <div class="project-deliverables">
+            <div class="project-deliverables-label">Deliverables</div>
+            <ul>
+              <li>Technical Drawings</li>
+              <li>Installation Guide</li>
+              <li>Maintenance Guide</li>
+              <li>Prototype</li>
+              <li>Graphics</li>
+              <li>Production Plan</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <p class="project-desc reveal reveal-delay-1">
+            A bamboo and aluminium product line designed to help young adults with intellectual and mental disabilities develop their potential and autonomy through art-making.
+          </p>
+          <p class="project-desc reveal reveal-delay-2">
+            Developed in collaboration with the <strong>SOWER TRAILS civil association</strong>, the set prioritises ease of grip, accessibility of form, and material warmth. Bamboo brings natural texture and lightness; aluminium provides structural precision where it matters.
+          </p>
+          <p class="project-desc reveal reveal-delay-3">
+            The design extends beyond the tools themselves to include a full installation and maintenance guide, ensuring the association can support the product independently over time.
+          </p>
+        </div>
+      </div>
+      <div class="img-grid-wide reveal reveal-delay-2">
+        <div>
+          <img src="https://carbon-media.accelerator.net/0000000maap/2YjP08TxmJFfcZCtUjqKzN;1400x990.jpeg" alt="Universal Art Set, bamboo and aluminium tools" />
+        </div>
+        <div>
+          <img src="https://carbon-media.accelerator.net/0000000maap/bdTKwcFVqYkdjzPJyFEM4h;933x1754.jpeg" alt="Universal Art Set detail and specifications" style="height: 100%; object-fit: cover;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project 02: Aqua Sense -->
+  <section class="project-section">
+    <div class="project-section-inner">
+      <div class="project-section-header">
+        <div class="reveal">
+          <div class="project-number">02</div>
+          <div class="section-rule" style="margin-bottom: 1.5rem;"></div>
+          <p class="project-for">Environmental Design</p>
+          <h2 class="project-title">Aqua<br /><em>Sense</em></h2>
+          <div class="project-deliverables">
+            <div class="project-deliverables-label">Deliverables</div>
+            <ul>
+              <li>Design Proposal</li>
+              <li>Technical Drawings</li>
+              <li>Scale Model</li>
+              <li>Graphics</li>
+              <li>Production Plan</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <p class="project-desc reveal reveal-delay-1">
+            An environmental project addressing responsible water use, targeting communities where water wastage is a daily and largely invisible problem.
+          </p>
+          <p class="project-desc reveal reveal-delay-2">
+            The design brief demanded a <strong>modern aesthetic that remained economically viable</strong> to manufacture and install, without sacrificing the clarity of its message. Good design as a tool for behaviour change.
+          </p>
+          <p class="project-desc reveal reveal-delay-3">
+            Delivered as a complete proposal with technical drawings, a scale model, and a full production plan ready for implementation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project 03: Dry Toilet -->
+  <section class="project-section">
+    <div class="project-section-inner">
+      <div class="project-section-header">
+        <div class="reveal">
+          <div class="project-number">03</div>
+          <div class="section-rule" style="margin-bottom: 1.5rem;"></div>
+          <p class="project-for">Sanitation Design</p>
+          <h2 class="project-title">Dry<br /><em>Toilet</em></h2>
+          <div class="project-deliverables">
+            <div class="project-deliverables-label">Deliverables</div>
+            <ul>
+              <li>Design Proposal</li>
+              <li>Technical Drawings</li>
+              <li>Scale Model</li>
+              <li>Graphics</li>
+              <li>Production Plan</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <p class="project-desc reveal reveal-delay-1">
+            A basic sanitation solution for <strong>low-income rural populations</strong> without access to sewers, running water, or expensive infrastructure.
+          </p>
+          <p class="project-desc reveal reveal-delay-2">
+            The system requires no sewerage connection and no water supply. It integrates composting and irrigation potential, turning waste into a resource and making dignified sanitation achievable in contexts where it otherwise wouldn't be.
+          </p>
+          <p class="project-desc reveal reveal-delay-3">
+            The challenge was to design something that is simple enough to be built locally, durable enough to last, and considered enough that people would actually use it.
+          </p>
+        </div>
+      </div>
+      <div class="img-grid-3 reveal reveal-delay-2" style="margin-bottom: 1rem;">
+        <div>
+          <img src="https://carbon-media.accelerator.net/0000000maap/eBNIXdXLYsReLFtRtEyoVZ;1366x589.png" alt="Dry Toilet plan view" />
+        </div>
+        <div>
+          <img src="https://carbon-media.accelerator.net/0000000maap/iNGZU1rthR6fdo2NEcTsOJ;1366x589.png" alt="Dry Toilet elevation" />
+        </div>
+        <div>
+          <img src="https://carbon-media.accelerator.net/0000000maap/0blzzJEfrSpdahSvwnJ5i9;1366x589.png" alt="Dry Toilet section detail" />
+        </div>
+      </div>
+      <div class="img-grid-wide reveal reveal-delay-3">
+        <div>
+          <img src="https://carbon-media.accelerator.net/0000000maap/bHSuxudtRgFeq0Z7vnXP6I;1400x990.jpeg" alt="Dry Toilet scale model" />
+        </div>
+        <div>
+          <img src="https://carbon-media.accelerator.net/0000000maap/avSqBpU2WZfb16tpdljBcG;1358x1920.jpeg" alt="Dry Toilet render" style="height: 100%; object-fit: cover;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project 04: Spora JRB -->
+  <section class="project-section">
+    <div class="project-section-inner">
+      <div class="project-section-header">
+        <div class="reveal">
+          <div class="project-number">04</div>
+          <div class="section-rule" style="margin-bottom: 1.5rem;"></div>
+          <p class="project-for">Agricultural Design</p>
+          <h2 class="project-title">Spora<br /><em>JRB</em></h2>
+          <div class="project-deliverables">
+            <div class="project-deliverables-label">Deliverables</div>
+            <ul>
+              <li>Design Proposal</li>
+              <li>Technical Drawings</li>
+              <li>Scale Model</li>
+              <li>Graphics</li>
+              <li>Production Plan</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <p class="project-desc reveal reveal-delay-1">
+            A mechanized automation system for seedling sowing, designed for <strong>small family agricultural producers</strong> who need to work across diverse seed varieties without large capital investment.
+          </p>
+          <p class="project-desc reveal reveal-delay-2">
+            The flat-pack design prioritises simple assembly and disassembly, making it accessible in contexts where specialist tools or expertise are not available. The system adapts to different seed types and tray sizes.
+          </p>
+          <p class="project-desc reveal reveal-delay-3">
+            Where industrial agriculture has large-scale mechanization, small producers have very little. Spora JRB is an attempt to close that gap, one tray at a time.
+          </p>
+        </div>
+      </div>
+      <div class="img-grid-2 reveal reveal-delay-2" style="margin-bottom: 1rem;">
+        <div>
+          <img src="https://carbon-media.accelerator.net/0000000maap/cHc1DNbQZO9erppCbYjVQ5;1280x720.png" alt="Spora JRB overview" />
+        </div>
+        <div>
+          <img src="https://carbon-media.accelerator.net/0000000maap/8uyoxCDBRMicxUCS2WuKDX;1280x720.png" alt="Spora JRB mechanism detail" />
+        </div>
+      </div>
+      <div class="img-grid-3 reveal reveal-delay-3" style="margin-bottom: 1rem;">
+        <div>
+          <img src="https://carbon-media.accelerator.net/0000000maap/lgVoXBw3iRwaZRIFVd02Wp;1280x720.png" alt="Spora JRB component view" />
+        </div>
+        <div>
+          <img src="https://carbon-media.accelerator.net/0000000maap/8lidIOgVz59corDnU9FPxF;1280x720.png" alt="Spora JRB assembly" />
+        </div>
+        <div>
+          <img src="https://carbon-media.accelerator.net/0000000maap/2kMOvGU74XDdLBXbZIRhJH;1181x1004.png" alt="Spora JRB technical detail" />
+        </div>
+      </div>
+      <div class="img-grid-wide reveal reveal-delay-2">
+        <div>
+          <img src="https://carbon-media.accelerator.net/0000000maap/7j1jgfBKJ0jdV2Vxdnmsv0;1737x600.jpeg" alt="Spora JRB in context" />
+        </div>
+        <div>
+          <img src="https://carbon-media.accelerator.net/0000000maap/dtDXficeHucd33MEavehzM;1357x1920.jpeg" alt="Spora JRB poster" style="height: 100%; object-fit: cover;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="section-inner">
+      <div class="cta-inner">
+        <a class="cta-back" href="index.html#projects">
+          <span>←</span> Back to all projects
+        </a>
+        <div class="cta-next">
+          <div class="cta-next-label">Next project</div>
+          <a class="cta-next-link" href="tea-connection.html">Tea Connection <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Maria Agustina Jaime. All rights reserved.</p>
+    <p class="footer-mark">Maria Agustina Jaime / Industrial Designer</p>
+    <p><a href="index.html" style="color: inherit; text-decoration: none;">magustinajaime.com</a></p>
+  </footer>
+
+  <script>
+    // Cursor
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      cursor.style.left = mouseX + 'px';
+      cursor.style.top = mouseY + 'px';
+    });
+    function animateRing() {
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      ring.style.left = ringX + 'px';
+      ring.style.top = ringY + 'px';
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
