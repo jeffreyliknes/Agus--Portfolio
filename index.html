@@ -453,8 +453,7 @@
     .photos .section-heading { color: var(--ink); }
     .photos-grid {
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      grid-template-rows: auto auto;
+      grid-template-columns: repeat(3, 1fr);
       gap: 4px;
     }
     .photo-item {
@@ -475,15 +474,14 @@
       transform: scale(1.03);
     }
     .photo-item--tall {
-      grid-row: span 2;
-      min-height: 500px;
+      min-height: 300px;
     }
     .photo-item--wide {
       grid-column: span 2;
-      min-height: 260px;
+      min-height: 300px;
     }
     .photo-item--normal {
-      min-height: 260px;
+      min-height: 300px;
     }
     .photo-caption {
       position: absolute;
@@ -1042,8 +1040,8 @@
               <div class="about-stat-label">Years at McNeel Europe</div>
             </div>
             <div class="about-stat">
-              <div class="about-stat-num" style="font-size:1.4rem;">☆</div>
-              <div class="about-stat-label">Regular Speaker for Rhino 3D</div>
+              <div class="about-stat-num">10+</div>
+              <div class="about-stat-label">Years 3D Modelling</div>
             </div>
           </div>
         </div>
@@ -1057,37 +1055,6 @@
           <p class="reveal reveal-delay-3">
             Outside work I design <strong>furniture</strong>, paint, and look for ways to bring good design into everyday life. I'm drawn to projects where digital tools and physical craft meet.
           </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Photos -->
-  <section class="photos" id="photos">
-    <div class="section-inner">
-      <div class="section-rule"></div>
-      <p class="section-label reveal">In the Field</p>
-      <h2 class="section-heading reveal reveal-delay-1">Moments from<br /><em>the community</em></h2>
-      <div class="photos-grid reveal reveal-delay-2">
-        <div class="photo-item photo-item--tall">
-          <img src="images/IMG-20240606-WA0023.jpg" alt="Agustina presenting at the Wroclaw Academy of Fine Arts" loading="lazy" />
-          <div class="photo-caption">Wroclaw Academy of Fine Arts, 2024</div>
-        </div>
-        <div class="photo-item photo-item--normal">
-          <img src="images/20251009-182539_AgustinaVisit_DSCF7381_fin.jpg" alt="Presenting Rhino Metal features to students" loading="lazy" />
-          <div class="photo-caption">Rhino User Meeting, 2025</div>
-        </div>
-        <div class="photo-item photo-item--normal">
-          <img src="images/image_20260312_143556a646aafd-6af2-45d9-8df9-8b95ce4cf893.jpg" alt="Speaking at Konferencja KeyShot" loading="lazy" />
-          <div class="photo-caption">Konferencja KeyShot, Poland</div>
-        </div>
-        <div class="photo-item photo-item--normal">
-          <img src="images/IMG-20240607-WA0008.jpg" alt="Rhino User Meeting Wroclaw speakers and attendees" loading="lazy" />
-          <div class="photo-caption">Rhino User Meeting, Wroclaw 2024</div>
-        </div>
-        <div class="photo-item photo-item--wide">
-          <img src="images/WhatsApp Image 2026-03-13 at 15.54.48.jpeg" alt="With the McNeel Europe team at a Rhinoceros event" loading="lazy" />
-          <div class="photo-caption">McNeel Europe Team</div>
         </div>
       </div>
     </div>
@@ -1126,14 +1093,34 @@
           <div class="exp-company">McNeel Europe x Fab Foundation</div>
         </div>
         <div class="exp-content">
-          <h3 class="exp-title">Event Organizer &amp; Speaker</h3>
+          <h3 class="exp-title">Event Organizer &amp; Rhino Trainer</h3>
           <p class="exp-desc">
             Organized and presented at Rhino User Meetings in Wroclaw, Budapest, London, and Amsterdam, bringing together designers, architects, and educators. Working closely with Fab Foundation Poland and McNeel's global team.
           </p>
           <div class="exp-tags">
             <span class="exp-tag">Event Organization</span>
-            <span class="exp-tag">Public Speaking</span>
+            <span class="exp-tag">Rhino Training</span>
             <span class="exp-tag">Collaboration</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal reveal-delay-2">
+        <div class="exp-meta">
+          <div class="exp-date">2019 - Present</div>
+          <div class="exp-company">Freelance</div>
+        </div>
+        <div class="exp-content">
+          <h3 class="exp-title">Furniture Designer — Gastronomy &amp; Retail</h3>
+          <p class="exp-desc">
+            Designing custom furniture and interior elements for restaurants, cafés, and retail spaces. Projects range from concept to production-ready 3D models, combining industrial design principles with the practical demands of high-use hospitality environments.
+          </p>
+          <div class="exp-tags">
+            <span class="exp-tag">Furniture Design</span>
+            <span class="exp-tag">Gastronomy</span>
+            <span class="exp-tag">Retail Spaces</span>
+            <span class="exp-tag">Rhino3D</span>
+            <span class="exp-tag">Industrial Design</span>
           </div>
         </div>
       </div>
@@ -1144,8 +1131,8 @@
   <section class="events" id="events">
     <div class="section-inner">
       <div class="section-rule"></div>
-      <p class="section-label reveal">Speaking &amp; Events</p>
-      <h2 class="section-heading reveal reveal-delay-1">Speaking &amp;<br /><em>Events</em> across Europe</h2>
+      <p class="section-label reveal">Events &amp; Presentations</p>
+      <h2 class="section-heading reveal reveal-delay-1">Presenting &amp;<br /><em>events</em> across Europe</h2>
 
       <div class="events-feature-photo reveal reveal-delay-1">
         <img src="images/WhatsApp Image 2026-03-13 at 15.57.48.jpeg" alt="Agustina at a McNeel Europe event with the community" loading="lazy" />
@@ -1193,6 +1180,37 @@
     </div>
   </section>
 
+  <!-- Photos -->
+  <section class="photos" id="photos">
+    <div class="section-inner">
+      <div class="section-rule"></div>
+      <p class="section-label reveal">In the Field</p>
+      <h2 class="section-heading reveal reveal-delay-1">Moments from<br /><em>the community</em></h2>
+      <div class="photos-grid reveal reveal-delay-2">
+        <div class="photo-item photo-item--normal">
+          <img src="images/IMG-20240606-WA0023.jpg" alt="Agustina presenting at the Wroclaw Academy of Fine Arts" loading="lazy" />
+          <div class="photo-caption">Wroclaw Academy of Fine Arts, 2024</div>
+        </div>
+        <div class="photo-item photo-item--normal">
+          <img src="images/20251009-182539_AgustinaVisit_DSCF7381_fin.jpg" alt="Presenting Rhino Metal features to students" loading="lazy" />
+          <div class="photo-caption">Rhino User Meeting, 2025</div>
+        </div>
+        <div class="photo-item photo-item--normal">
+          <img src="images/image_20260312_143556a646aafd-6af2-45d9-8df9-8b95ce4cf893.jpg" alt="Speaking at Konferencja KeyShot" loading="lazy" />
+          <div class="photo-caption">Konferencja KeyShot, Poland</div>
+        </div>
+        <div class="photo-item photo-item--normal">
+          <img src="images/IMG-20240607-WA0008.jpg" alt="Rhino User Meeting Wroclaw speakers and attendees" loading="lazy" />
+          <div class="photo-caption">Rhino User Meeting, Wroclaw 2024</div>
+        </div>
+        <div class="photo-item photo-item--wide">
+          <img src="images/WhatsApp Image 2026-03-13 at 15.54.48.jpeg" alt="With the McNeel Europe team at a Rhinoceros event" loading="lazy" />
+          <div class="photo-caption">McNeel Europe Team</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Skills -->
   <section class="skills" id="skills">
     <div class="section-inner">
@@ -1203,20 +1221,22 @@
           <h2 class="section-heading reveal reveal-delay-1">Skills &amp;<br /><em>background</em></h2>
 
           <div class="skill-group reveal reveal-delay-2">
-            <div class="skill-group-label">3D Software</div>
+            <div class="skill-group-label">Design Software</div>
             <ul class="skill-list">
               <li>Rhino3D</li>
               <li>KeyShot</li>
+              <li>Adobe Photoshop</li>
+              <li>Adobe Illustrator</li>
             </ul>
           </div>
 
           <div class="skill-group reveal reveal-delay-3">
             <div class="skill-group-label">Professional</div>
             <ul class="skill-list">
-              <li>Courses &amp; Workshops</li>
-              <li>Technical Communication</li>
-              <li>Public Speaking</li>
-              <li>Community Building</li>
+              <li>3D Design Evangelist &amp; Community Builder</li>
+              <li>Rhino Technical Support &amp; Trainer</li>
+              <li>Furniture Designer for Gastronomy &amp; Retail</li>
+              <li>3D Modeller</li>
             </ul>
           </div>
 

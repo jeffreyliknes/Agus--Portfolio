@@ -9,6 +9,14 @@ This is a static HTML/CSS portfolio site. No build step, no dependencies.
 - Install CLI tools via `brew install`
 - Run `gh auth login` or other `gh` commands
 
+## Git remote & pushing
+- Remote repo: https://github.com/jeffreyliknes/Agus--Portfolio
+- GitHub account: **jeffreyliknes** (NOT Jeff-Liknes — two separate accounts)
+- Branch: `main`
+- Push command: `git push origin main`
+- If the remote isn't set: `git remote add origin https://github.com/jeffreyliknes/Agus--Portfolio.git`
+- If push fails due to wrong account, check with `gh auth status` and switch with `gh auth login`
+
 ## Project structure
 - `index.html` — main portfolio page
 - `tea-connection.html` — Tea Connection project page
