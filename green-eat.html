@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tea Connection, Maria Agustina Jaime</title>
+  <title>Green Eat, Maria Agustina Jaime</title>
 
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,15 +14,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream: #f5f0e8;
-      --cream-dark: #ede7d9;
-      --ink: #1a1714;
-      --ink-soft: #3d3830;
-      --ink-muted: #8a8278;
-      --accent: #c43d18;
-      --accent-light: #e06040;
-      --rule: #ccc5b8;
-      --white: #faf8f4;
+      --cream: #f4f1eb;
+      --cream-dark: #ece8de;
+      --ink: #1a1c18;
+      --ink-soft: #353830;
+      --ink-muted: #7d8278;
+      --accent: #3d7a3e;
+      --accent-light: #62a464;
+      --rule: #c8c5bc;
+      --white: #f9f7f3;
     }
 
     html { scroll-behavior: smooth; }
@@ -70,7 +70,7 @@
       transition: background 0.35s ease, padding 0.35s ease;
     }
     nav.scrolled {
-      background: rgba(248, 246, 243, 0.92);
+      background: rgba(249, 247, 243, 0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       box-shadow: 0 1px 0 rgba(0,0,0,0.08);
@@ -109,19 +109,19 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 60%;
+      object-position: center 40%;
       display: block;
-      opacity: 0.75;
+      opacity: 0.78;
       animation: heroFade 1.2s ease forwards;
     }
     @keyframes heroFade {
       from { opacity: 0; transform: scale(1.04); }
-      to { opacity: 0.75; transform: scale(1); }
+      to { opacity: 0.78; transform: scale(1); }
     }
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(26,23,20,0.7) 0%, rgba(26,23,20,0.1) 60%, transparent 100%);
+      background: linear-gradient(to top, rgba(26,28,24,0.72) 0%, rgba(26,28,24,0.08) 60%, transparent 100%);
     }
     .hero-content {
       position: absolute;
@@ -157,13 +157,13 @@
       font-size: 0.6rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(245,240,232,0.5);
+      color: rgba(244,241,235,0.5);
       margin-bottom: 0.3rem;
     }
     .hero-meta-value {
       font-size: 0.82rem;
       font-weight: 300;
-      color: rgba(245,240,232,0.85);
+      color: rgba(244,241,235,0.85);
       letter-spacing: 0.04em;
     }
 
@@ -207,7 +207,6 @@
       gap: 6rem;
       align-items: start;
     }
-    .brief-left {}
     .brief-role-list {
       list-style: none;
       display: flex;
@@ -269,7 +268,7 @@
       color: var(--ink-muted);
     }
 
-    /* Gallery, hero image pair */
+    /* Gallery lead */
     .gallery-lead {
       padding: 0 0 4px;
       background: var(--ink);
@@ -288,7 +287,7 @@
       height: 580px;
       object-fit: cover;
       display: block;
-      filter: brightness(0.92);
+      filter: brightness(0.9);
       transition: filter 0.4s ease, transform 0.6s ease;
     }
     .gallery-lead-item:hover img {
@@ -299,22 +298,22 @@
       position: absolute;
       bottom: 0; left: 0; right: 0;
       padding: 1.5rem 1.5rem 1rem;
-      background: linear-gradient(transparent, rgba(26,23,20,0.6));
+      background: linear-gradient(transparent, rgba(26,28,24,0.6));
       font-size: 0.65rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: rgba(245,240,232,0.75);
+      color: rgba(244,241,235,0.75);
       opacity: 0;
       transition: opacity 0.3s ease;
     }
     .gallery-lead-item:hover .gallery-caption { opacity: 1; }
 
-    /* Floor plans */
-    .plans {
+    /* Spaces */
+    .spaces {
       padding: 8rem 0;
       background: var(--cream-dark);
     }
-    .plans-intro {
+    .spaces-intro {
       max-width: 560px;
       font-size: 0.95rem;
       font-weight: 300;
@@ -322,24 +321,24 @@
       color: var(--ink-soft);
       margin-bottom: 4rem;
     }
-    .plans-grid {
+    .spaces-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
     }
-    .plan-item {
+    .space-item {
       background: var(--white);
       border: 1px solid var(--rule);
       overflow: hidden;
       position: relative;
     }
-    .plan-item img {
+    .space-item img {
       width: 100%;
       display: block;
       transition: transform 0.5s ease;
     }
-    .plan-item:hover img { transform: scale(1.02); }
-    .plan-label {
+    .space-item:hover img { transform: scale(1.02); }
+    .space-label {
       padding: 1.2rem 1.5rem;
       font-size: 0.65rem;
       letter-spacing: 0.18em;
@@ -348,21 +347,61 @@
       border-top: 1px solid var(--rule);
     }
 
+    /* Strip gallery */
+    .strip {
+      background: var(--ink);
+      padding: 4px 0;
+    }
+    .strip-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4px;
+    }
+    .strip-item {
+      overflow: hidden;
+      position: relative;
+    }
+    .strip-item img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.88);
+      transition: filter 0.4s ease, transform 0.6s ease;
+    }
+    .strip-item:hover img {
+      filter: brightness(1);
+      transform: scale(1.03);
+    }
+
+    /* Wide strip */
+    .strip-wide {
+      background: var(--ink);
+      padding: 4px 0 0;
+    }
+    .strip-wide img {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.85);
+    }
+
     /* Materials */
     .materials {
       padding: 8rem 0;
       background: var(--ink);
       color: var(--cream);
     }
-    .materials .section-rule { background: #3d3830; }
+    .materials .section-rule { background: #353830; }
     .materials .section-label { color: var(--accent-light); }
     .materials .section-heading { color: var(--cream); }
     .materials-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 2px;
-      background: #3d3830;
-      border: 1px solid #3d3830;
+      background: #353830;
+      border: 1px solid #353830;
       margin-top: 1rem;
     }
     .material-swatch {
@@ -390,7 +429,7 @@
       line-height: 1.5;
     }
 
-    /* Next project / back CTA */
+    /* CTA */
     .cta {
       padding: 8rem 0 6rem;
       background: var(--cream);
@@ -486,7 +525,10 @@
       .brief-stat { flex: 1 1 45%; }
       .gallery-lead-grid { grid-template-columns: 1fr; }
       .gallery-lead-item img { height: 320px; }
-      .plans-grid { grid-template-columns: 1fr; }
+      .spaces-grid { grid-template-columns: 1fr; }
+      .strip-grid { grid-template-columns: 1fr; }
+      .strip-item img { height: 280px; }
+      .strip-wide img { height: 280px; }
       .materials-grid { grid-template-columns: 1fr 1fr; }
       .cta-inner { flex-direction: column; gap: 3rem; align-items: flex-start; }
       footer { flex-direction: column; gap: 1rem; padding: 2rem; text-align: center; }
@@ -508,23 +550,23 @@
 
   <!-- Hero -->
   <section class="hero">
-    <img src="images/tea-connection/WhatsApp Image 2026-03-16 at 23.00.18.jpeg" alt="Tea Connection restaurant exterior, wood facade, black metal, terrace" />
+    <img src="images/green-eat/imgi_15_1920x1423.jpg" alt="Green Eat flagship interior, skylight, exposed brick, vintage VW van, tropical plants" />
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">Branding &amp; Interior Design</p>
-      <h1 class="hero-title">Tea<br /><em>Connection</em></h1>
+      <h1 class="hero-title">Green<br /><em>Eat</em></h1>
       <div class="hero-meta">
         <div class="hero-meta-item">
           <div class="hero-meta-label">Location</div>
-          <div class="hero-meta-value">Argentina · Chile · Brasil</div>
+          <div class="hero-meta-value">Buenos Aires, Argentina</div>
         </div>
         <div class="hero-meta-item">
           <div class="hero-meta-label">Type</div>
-          <div class="hero-meta-value">Restaurant Chain, Brand Consolidation</div>
+          <div class="hero-meta-value">Healthy Food Chain, Brand Consolidation</div>
         </div>
         <div class="hero-meta-item">
           <div class="hero-meta-label">Role</div>
-          <div class="hero-meta-value">Branding / Layout / Furniture / Lighting / Packaging</div>
+          <div class="hero-meta-value">Branding / Layout / Furniture / Lighting / Packaging / Merchandise</div>
         </div>
       </div>
     </div>
@@ -537,7 +579,7 @@
       <div class="brief-grid">
         <div class="brief-left reveal">
           <p class="section-label">The Project</p>
-          <h2 class="section-heading">Brand<br /><em>consolidated</em></h2>
+          <h2 class="section-heading">Brand<br /><em>redefined</em></h2>
           <ul class="brief-role-list">
             <li>Branding &amp; Visual Identity</li>
             <li>Layout &amp; Space Planning</li>
@@ -551,30 +593,30 @@
         </div>
         <div class="brief-right">
           <p class="reveal reveal-delay-1">
-            Tea Connection is a restaurant group with locations across <strong>Argentina, Chile, and Brasil</strong>. The brief was to redefine and consolidate a coherent brand image across all venues, creating a visual and spatial language that would feel consistent and intentional wherever you encountered it.
+            Green Eat are the <strong>pioneers of healthy fast food in Buenos Aires</strong>. The brief was to redefine and consolidate a coherent brand image across all locations, creating a spatial and visual language that felt alive, natural, and unmistakably theirs.
           </p>
           <p class="reveal reveal-delay-2">
-            The work spanned the full breadth of the physical experience: floor plans and furniture specifications for each space module, a warm materials palette of <strong>petiribí wood, black iron, and marble</strong>, custom lighting, branded packaging, and merchandise display systems.
+            The work spanned every touchpoint of the physical experience — floor plans and furniture specifications for each format, a natural materials palette of <strong>warm wood, exposed brick, black iron, and rattan</strong>, custom lighting, branded packaging, and merchandise display systems.
           </p>
           <p class="reveal reveal-delay-3">
-            The result is a brand that feels grounded and considered, industrial warmth, natural materials, and a language that scales across very different physical spaces without losing its character.
+            Each space has its own character: from a compact street-front café minimarket to a sprawling flagship with a tropical garden and a <strong>vintage VW van parked inside</strong>. The brand scales across radically different formats without losing its identity.
           </p>
           <div class="brief-stat-row reveal reveal-delay-3">
             <div class="brief-stat">
-              <div class="brief-stat-num">3</div>
-              <div class="brief-stat-label">Countries</div>
+              <div class="brief-stat-num">3+</div>
+              <div class="brief-stat-label">Formats</div>
             </div>
             <div class="brief-stat">
-              <div class="brief-stat-num">9+</div>
-              <div class="brief-stat-label">Space Modules</div>
+              <div class="brief-stat-num">1°</div>
+              <div class="brief-stat-label">Healthy Fast Food</div>
             </div>
             <div class="brief-stat">
-              <div class="brief-stat-num">2</div>
-              <div class="brief-stat-label">Floor Plans</div>
+              <div class="brief-stat-num">1</div>
+              <div class="brief-stat-label">VW Van Inside</div>
             </div>
             <div class="brief-stat">
               <div class="brief-stat-num">∞</div>
-              <div class="brief-stat-label">Teas Served</div>
+              <div class="brief-stat-label">Plants</div>
             </div>
           </div>
         </div>
@@ -582,74 +624,109 @@
     </div>
   </section>
 
-  <!-- Gallery, interior photos -->
+  <!-- Gallery lead pair -->
   <div class="gallery-lead">
     <div class="gallery-lead-grid">
       <div class="gallery-lead-item">
-        <img src="images/tea-connection/WhatsApp Image 2026-03-16 at 23.00.18.jpeg" alt="Tea Connection exterior facade, petiribí wood and black iron signage" />
-        <div class="gallery-caption">Exterior, Facade &amp; Terrace</div>
+        <img src="images/green-eat/imgi_3_1920x1357.jpg" alt="Green Eat flagship dining room, exposed brick, rattan pendants, botanical seating zones" />
+        <div class="gallery-caption">Flagship Interior, Dining Room</div>
       </div>
       <div class="gallery-lead-item">
-        <img src="images/tea-connection/WhatsApp Image 2026-03-16 at 23.00.42.jpeg" alt="Tea Connection interior bar area, marble counter, custom shelving, branded tins" />
-        <div class="gallery-caption">Interior, Bar &amp; Service Counter</div>
+        <img src="images/green-eat/imgi_16_1920x1439.jpg" alt="Green Eat vintage VW van installation, exposed brick, yellow pendant, black iron tables" />
+        <div class="gallery-caption">Flagship, VW Van Feature</div>
       </div>
     </div>
   </div>
 
-  <!-- Floor Plans -->
-  <section class="plans">
+  <!-- Spaces -->
+  <section class="spaces">
     <div class="section-inner">
       <div class="section-rule"></div>
       <p class="section-label reveal">Spatial Design</p>
-      <h2 class="section-heading reveal reveal-delay-1">Floor plans &amp;<br /><em>modules</em></h2>
-      <p class="plans-intro reveal reveal-delay-2">
-        Each space was broken into meeting modules, from the cafetín bar stools at the counter, to the living-room-style lounge, exterior terrace, and pharmacy display. Materials and furniture were specified per module with custom combinations of petiribí wood, black iron, and marble.
+      <h2 class="section-heading reveal reveal-delay-1">Multiple formats,<br /><em>one identity</em></h2>
+      <p class="spaces-intro reveal reveal-delay-2">
+        Each Green Eat location was designed to its own scale and programme — from the compact café minimarket with street terrace, to the cavernous flagship with full-height glazing, internal garden, and communal seating. Materials and furniture were specified per format while maintaining a consistent brand character.
       </p>
-      <div class="plans-grid reveal reveal-delay-2">
-        <div class="plan-item">
-          <img src="images/tea-connection/WhatsApp Image 2026-03-16 at 23.01.29.jpeg" alt="Planta Baja, ground floor layout with furniture module specifications" />
-          <div class="plan-label">Planta Baja, Ground Floor</div>
+      <div class="spaces-grid reveal reveal-delay-2">
+        <div class="space-item">
+          <img src="images/green-eat/imgi_4_1920x1443.jpg" alt="Green Eat overhead view, rattan pendants, mixed seating zones, botanical elements" />
+          <div class="space-label">Flagship — Overhead, Mixed Seating Zones</div>
         </div>
-        <div class="plan-item">
-          <img src="images/tea-connection/WhatsApp Image 2026-03-16 at 23.01.36.jpeg" alt="Planta Alta, upper floor layout with terrace and exterior modules" />
-          <div class="plan-label">Planta Alta, Upper Floor &amp; Terrace</div>
+        <div class="space-item">
+          <img src="images/green-eat/imgi_11_1920x1429.jpg" alt="Green Eat aerial view of crowded flagship, tropical plants, hexagonal floor tiles" />
+          <div class="space-label">Flagship — Aerial View, Full Capacity</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Materials palette -->
+  <!-- Strip: 3 images -->
+  <div class="strip">
+    <div class="strip-grid">
+      <div class="strip-item">
+        <img src="images/green-eat/imgi_12_1920x924.jpg" alt="Green Eat interior, natural wood tables, greenery, warm pendant lighting" />
+      </div>
+      <div class="strip-item">
+        <img src="images/green-eat/imgi_10_1920x1285.jpg" alt="Green Eat exposed brick wall with hand-painted CAFE CAFEEE typography, woman seated" />
+      </div>
+      <div class="strip-item">
+        <img src="images/green-eat/imgi_9_1920x1273.jpg" alt="Green Eat overhead view of plant pipe shelving and rattan pendant lights" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Wide strip: exterior -->
+  <div class="strip-wide">
+    <img src="images/green-eat/imgi_14_1920x2558.jpg" alt="Green Eat large-format interior, tropical palms, wood panelling, communal dining" style="object-position: center 30%;" />
+  </div>
+
+  <!-- Strip: café format -->
+  <div class="strip" style="padding: 4px 0;">
+    <div class="strip-grid">
+      <div class="strip-item">
+        <img src="images/green-eat/imgi_2_1920x1439.jpg" alt="Green Eat café minimarket exterior, wood facade, teal awning, street terrace" />
+      </div>
+      <div class="strip-item">
+        <img src="images/green-eat/imgi_5_1920x929.jpg" alt="Green Eat coffee division interior, minimarket shelving, jams and retail products" />
+      </div>
+      <div class="strip-item">
+        <img src="images/green-eat/imgi_8_1920x1394.jpg" alt="Green Eat Coffee Division street exterior and plant display shelving with rattan pendants" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Materials -->
   <section class="materials">
     <div class="section-inner">
       <div class="section-rule"></div>
       <p class="section-label reveal">Materials Palette</p>
-      <h2 class="section-heading reveal reveal-delay-1">Warmth &amp;<br /><em>contrast</em></h2>
+      <h2 class="section-heading reveal reveal-delay-1">Natural &amp;<br /><em>alive</em></h2>
       <div class="materials-grid reveal reveal-delay-2">
         <div class="material-swatch">
-          <div class="swatch-block" style="background: #c8a870;"></div>
-          <div class="swatch-name">Petiribí</div>
-          <div class="swatch-desc">Primary wood. Tabletops, shelving, facade cladding, custom furniture frames.</div>
+          <div class="swatch-block" style="background: #c8a050;"></div>
+          <div class="swatch-name">Madera Natural</div>
+          <div class="swatch-desc">Warm oak. Tabletops, shelving units, wall cladding, custom furniture frames and cabinetry.</div>
+        </div>
+        <div class="material-swatch">
+          <div class="swatch-block" style="background: #a87060;"></div>
+          <div class="swatch-name">Ladrillo Visto</div>
+          <div class="swatch-desc">Exposed brick. Feature walls, painted typography surfaces, raw textural backdrop throughout.</div>
         </div>
         <div class="material-swatch">
           <div class="swatch-block" style="background: #2a2a2a;"></div>
           <div class="swatch-name">Hierro Negro</div>
-          <div class="swatch-desc">Black iron. Structural frames, shelving, signage, screen mesh, bar detailing.</div>
+          <div class="swatch-desc">Black iron. Pipe shelving, structural frames, bar detailing, merchandise display racks.</div>
         </div>
         <div class="material-swatch">
-          <div class="swatch-block" style="background: #e8e4de; border: 1px solid #3d3830;"></div>
-          <div class="swatch-name">Mármol</div>
-          <div class="swatch-desc">White marble. Bar counter surface, bathroom vanity, feature surfaces.</div>
-        </div>
-        <div class="material-swatch">
-          <div class="swatch-block" style="background: #7a7060;"></div>
-          <div class="swatch-name">Fibra Lavada</div>
-          <div class="swatch-desc">Washed carbon fibre upholstery. Banquette seating, capitoné cushions.</div>
+          <div class="swatch-block" style="background: #c4a060; border: 1px solid #353830;"></div>
+          <div class="swatch-name">Rattan Natural</div>
+          <div class="swatch-desc">Natural rattan. Pendant light shades, accent chairs, woven seating and decorative elements.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA / navigation -->
+  <!-- CTA -->
   <section class="cta">
     <div class="section-inner">
       <div class="cta-inner">
@@ -658,7 +735,7 @@
         </a>
         <div class="cta-next">
           <div class="cta-next-label">Next project</div>
-          <a class="cta-next-link" href="green-eat.html">Green Eat <span>→</span></a>
+          <a class="cta-next-link" href="index.html#projects">Big Box <span>→</span></a>
         </div>
       </div>
     </div>
